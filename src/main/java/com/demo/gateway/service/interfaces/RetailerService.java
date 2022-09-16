@@ -1,15 +1,17 @@
 package com.demo.gateway.service.interfaces;
 
-import com.demo.gateway.model.data.Purchase;
+import com.demo.gateway.model.data.CustomerRewards;
+import com.demo.gateway.model.interfaces.Transaction;
 
-import java.util.Date;
 import java.util.List;
 
 public interface RetailerService {
-    Purchase getTransactionById(String transactionID);
+    Transaction getTransactionById(String transactionID);
 
-    List<Purchase> getTransactionsByDate(Date startDate, Date endDate);
+    List<Transaction> getTransactionsByCustomerID(String customerID);
 
-    List<Purchase> getTransactionsByCustomerID(String customerID);
+    List<CustomerRewards> getCustomerRewards(List<Transaction> transactions);
+
+    List<Transaction> getTransactionsForThreeMonths();
 
 }

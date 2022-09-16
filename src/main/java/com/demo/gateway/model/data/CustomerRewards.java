@@ -17,12 +17,12 @@ public class CustomerRewards {
         this.customerID = customerID;
         rewardPtsByMonth = new HashMap<>();
         // group rewards by month
-        Map<Integer, List<Purchase>> transactionsByMonth = transactionList.stream().collect(groupingBy(Purchase::getMonth));
+        Map<Integer, List<Transaction>> transactionsByMonth = transactionList.stream().collect(groupingBy(Transaction::getMonth));
         // iterate over each month and perform calculations
         transactionsByMonth.forEach((k, v) -> {
             int month = k;
             // add up all spent
-            double spent = v.stream().map(Purchase::getTransactionAmount).mapToDouble(Double::doubleValue).sum();
+            double spent = v.stream().map(Transaction::getTransactionAmount).mapToDouble(Double::doubleValue).sum();
             // calculate reward pts
             int highPts = 0;
             int lowPts = 0;
